@@ -23,11 +23,8 @@ augroup direnv_rc
 
   if direnv#auto()
     autocmd VimEnter * DirenvExport
-
-    if exists('##DirChanged')
-      autocmd DirChanged * DirenvExport
-    else
-      autocmd BufEnter * DirenvExport
+    if exists(':Rooter')
+      autocmd User RooterChDir DirenvExport
     endif
   endif
 augroup END
